@@ -1,1 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Dr. Sak Narwal (Sakwinder Narwal) — Friendly, modern dentist in New York City. Cosmetic, preventive & family dental care with a warm, personal touch. Book today!"/>
+  <meta name="keywords" content="Sak Narwal, Sakwinder Narwal, dentist New York City, NYC cosmetic dentist, family dentist NYC, dental care Manhattan"/>
+  <meta name="author" content="Dr. Sakwinder Narwal"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:title" content="Dr. Sak Narwal | Dental Care · New York City"/>
+  <meta property="og:description" content="Dr. Sakwinder Narwal — warm, precise dental care in the heart of New York City."/>
+  <meta property="og:type" content="website"/>
+  <title>Dr. Sak Narwal | Dental Care · New York City</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --bg:       #f7f4ee;
+      --bg2:      #efeae0;
+      --sage:     #7aab8a;
+      --sage-d:   #4e8063;
+      --sage-l:   #d4eadb;
+      --peach:    #f2a489;
+      --peach-l:  #fde8df;
+      --sky:      #a3c4e8;
+      --sky-l:    #ddeeff;
+      --lemon:    #f5e27a;
+      --lemon-l:  #fdf8d6;
+      --ink:      #1e2420;
+      --ink2:     #3a4240;
+      --muted:    #7a8580;
+      --white:    #ffffff;
+      --card-r:   22px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE TEXTURE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(247,244,238,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(122,171,138,0.18);
+      padding: 0 5%;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-bubble {
+      width: 38px; height: 38px;
+      background: var(--sage);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      color: var(--white);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.2px;
+    }
+
+    .logo-text span { color: var(--sage-d); }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--ink2);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--sage-d); }
+
+    .pill-btn {
+      background: var(--sage) !important;
+      color: var(--white) !important;
+      padding: 9px 22px;
+      border-radius: 50px;
+      font-size: 0.85rem !important;
+      font-weight: 600 !important;
+      transition: background 0.2s, transform 0.15s !important;
+      box-shadow: 0 4px 14px rgba(122,171,138,0.35);
+    }
+
+    .pill-btn:hover { background: var(--sage-d) !important; transform: translateY(-1px); }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.3s; }
+
+    /* ─── HERO ─── */
+    #hero {
+      padding: 60px 5% 50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Decorative blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+    }
+
+    .blob-1 { width: 520px; height: 520px; background: var(--sage-l); top: -100px; right: -80px; }
+    .blob-2 { width: 380px; height: 380px; background: var(--peach-l); bottom: -60px; left: 10%; }
+    .blob-3 { width: 280px; height: 280px; background: var(--lemon-l); top: 20%; left: -60px; }
+
+    /* ─── BENTO GRID ─── */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Card base */
+    .card {
+      background: var(--white);
+      border-radius: var(--card-r);
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(30,36,32,0.1);
+    }
+
+    /* CARD PLACEMENTS */
+    .card-hero   { grid-column: 1 / 8;  grid-row: 1; }
+    .card-cta    { grid-column: 8 / 13; grid-row: 1; background: var(--sage); }
+    .card-stat1  { grid-column: 1 / 4;  grid-row: 2; background: var(--peach-l); }
+    .card-stat2  { grid-column: 4 / 7;  grid-row: 2; background: var(--sky-l); }
+    .card-stat3  { grid-column: 7 / 10; grid-row: 2; background: var(--lemon-l); }
+    .card-quote  { grid-column: 10 / 13;grid-row: 2; background: var(--sage-l); }
+
+    /* ABOUT */
+    .card-about-text { grid-column: 1 / 6;  grid-row: 3; }
+    .card-about-img  { grid-column: 6 / 9;  grid-row: 3; background: var(--sage); }
+    .card-creds      { grid-column: 9 / 13; grid-row: 3; background: var(--bg2); }
+
+    /* SERVICES */
+    .card-svc-head { grid-column: 1 / 5;  grid-row: 4; background: var(--ink); }
+    .card-svc-1    { grid-column: 5 / 8;  grid-row: 4; background: var(--peach-l); }
+    .card-svc-2    { grid-column: 8 / 10; grid-row: 4; background: var(--sky-l); }
+    .card-svc-3    { grid-column: 10 / 13;grid-row: 4; background: var(--lemon-l); }
+    .card-svc-4    { grid-column: 1 / 4;  grid-row: 5; background: var(--sage-l); }
+    .card-svc-5    { grid-column: 4 / 7;  grid-row: 5; background: var(--peach-l); }
+    .card-svc-6    { grid-column: 7 / 10; grid-row: 5; background: var(--sky-l); }
+    .card-why      { grid-column: 10 / 13;grid-row: 5; background: var(--lemon-l); }
+
+    /* CONTACT */
+    .card-contact-info { grid-column: 1 / 5;  grid-row: 6; background: var(--ink); }
+    .card-contact-form { grid-column: 5 / 13; grid-row: 6; }
+
+    /* ─── CARD-HERO ─── */
+    .card-hero .tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--sage-l);
+      color: var(--sage-d);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-hero .tag span { width: 6px; height: 6px; background: var(--sage-d); border-radius: 50%; display: inline-block; }
+
+    .card-hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.5px;
+    }
+
+    .card-hero h1 em { font-style: italic; color: var(--sage-d); }
+
+    .card-hero p {
+      color: var(--muted);
+      font-size: 0.97rem;
+      font-weight: 400;
+      line-height: 1.75;
+      max-width: 440px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn-sage {
+      background: var(--sage);
+      color: var(--white);
+      padding: 12px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 14px rgba(122,171,138,0.3);
+    }
+
+    .btn-sage:hover { background: var(--sage-d); transform: translateY(-2px); }
+
+    .btn-outline-ink {
+      border: 1.5px solid rgba(30,36,32,0.2);
+      color: var(--ink2);
+      padding: 12px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: border-color 0.2s;
+    }
+
+    .btn-outline-ink:hover { border-color: var(--ink); }
+
+    .card-hero::after {
+      content: '🦷';
+      position: absolute;
+      bottom: 20px; right: 28px;
+      font-size: 5rem;
+      opacity: 0.07;
+      pointer-events: none;
+    }
+
+    /* ─── CARD-CTA ─── */
+    .card-cta { display: flex; flex-direction: column; justify-content: space-between; }
+
+    .card-cta .cta-top {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .card-cta .cta-top em { font-style: italic; opacity: 0.75; }
+
+    .card-cta .cta-sub {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.88rem;
+      margin: 1rem 0 auto;
+      line-height: 1.7;
+    }
+
+    .card-cta .btn-white {
+      display: inline-block;
+      margin-top: 2rem;
+      background: var(--white);
+      color: var(--sage-d);
+      padding: 13px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: transform 0.2s;
+      align-self: flex-start;
+    }
+
+    .card-cta .btn-white:hover { transform: translateY(-2px); }
+
+    .card-cta::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+
+    /* ─── STAT CARDS ─── */
+    .stat-big {
+      font-family: 'Fraunces', serif;
+      font-size: 3.2rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-big.peach { color: var(--peach); }
+    .stat-big.sky   { color: #4a90d9; }
+    .stat-big.lemon { color: #c9a800; }
+
+    .stat-label { font-size: 0.82rem; color: var(--muted); font-weight: 500; }
+
+    .card-quote {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-quote .q-mark {
+      font-family: 'Fraunces', serif;
+      font-size: 3.5rem;
+      color: var(--sage);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-quote p {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 0.97rem;
+      color: var(--ink2);
+      line-height: 1.6;
+    }
+
+    .card-quote .attr { font-family: 'Figtree', sans-serif; font-style: normal; font-size: 0.75rem; color: var(--muted); margin-top: 0.8rem; font-weight: 500; }
+
+    /* ─── ABOUT ─── */
+    .card-about-text h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.7rem, 2.5vw, 2.3rem);
+      font-weight: 500;
+      line-height: 1.25;
+      margin-bottom: 1.2rem;
+      color: var(--ink);
+    }
+
+    .card-about-text h2 em { font-style: italic; color: var(--sage-d); }
+
+    .card-about-text p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .card-about-img {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+    }
+
+    .card-about-img .doc-badge {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 14px;
+      padding: 16px 20px;
+      color: var(--white);
+    }
+
+    .card-about-img .doc-badge .doc-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .card-about-img .doc-badge .doc-title {
+      font-size: 0.78rem;
+      opacity: 0.7;
+      letter-spacing: 0.5px;
+    }
+
+    .card-about-img::before {
+      content: '👨‍⚕️';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -60%);
+      font-size: 6rem;
+      opacity: 0.3;
+    }
+
+    .card-creds { padding: 28px 30px; }
+
+    .card-creds h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.2px;
+    }
+
+    .cred-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(30,36,32,0.07);
+    }
+
+    .cred-item:last-child { border-bottom: none; }
+
+    .cred-dot {
+      width: 8px; height: 8px;
+      background: var(--sage);
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .cred-item p { font-size: 0.82rem; color: var(--ink2); line-height: 1.5; font-weight: 400; }
+    .cred-item strong { font-weight: 600; color: var(--ink); display: block; font-size: 0.84rem; }
+
+    /* ─── SERVICE CARDS ─── */
+    .card-svc-head {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-svc-head h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .card-svc-head h2 em { font-style: italic; opacity: 0.6; }
+
+    .card-svc-head p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin-top: 1rem;
+      flex: 1;
+    }
+
+    .svc-count {
+      font-family: 'Fraunces', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.07);
+      position: absolute;
+      bottom: 12px; right: 20px;
+      line-height: 1;
+    }
+
+    .svc-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+
+    .svc-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .svc-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+
+    /* ─── WHY CARD ─── */
+    .card-why h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .why-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .why-chip {
+      background: rgba(30,36,32,0.07);
+      color: var(--ink2);
+      padding: 7px 13px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    /* ─── CONTACT ─── */
+    .card-contact-info h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.6rem, 2.3vw, 2.2rem);
+      color: var(--white);
+      font-weight: 500;
+      line-height: 1.25;
+      margin-bottom: 1.8rem;
+    }
+
+    .card-contact-info h2 em { font-style: italic; opacity: 0.55; }
+
+    .info-list { list-style: none; }
+
+    .info-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .info-list li:last-child { border-bottom: none; }
+
+    .info-icon {
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .info-list .il-label { font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+    .info-list .il-val { font-size: 0.9rem; color: var(--white); font-weight: 400; }
+
+    .card-contact-form h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-group label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--bg);
+      border: 1.5px solid rgba(30,36,32,0.1);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-family: 'Figtree', sans-serif;
+      font-size: 0.9rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--sage);
+      box-shadow: 0 0 0 3px rgba(122,171,138,0.15);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 80px; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--sage);
+      color: var(--white);
+      border: none;
+      padding: 14px;
+      border-radius: 14px;
+      font-family: 'Figtree', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 14px;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 14px rgba(122,171,138,0.3);
+    }
+
+    .btn-submit:hover { background: var(--sage-d); transform: translateY(-1px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 28px 5%;
+      font-size: 0.82rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer strong { color: rgba(255,255,255,0.7); }
+
+    /* ─── REVEAL ANIMATIONS ─── */
+    .card {
+      opacity: 0;
+      transform: translateY(28px) scale(0.98);
+      transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.3s, filter 0.3s;
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Staggered delays */
+    .card:nth-child(1)  { transition-delay: 0.00s; }
+    .card:nth-child(2)  { transition-delay: 0.06s; }
+    .card:nth-child(3)  { transition-delay: 0.12s; }
+    .card:nth-child(4)  { transition-delay: 0.18s; }
+    .card:nth-child(5)  { transition-delay: 0.24s; }
+    .card:nth-child(6)  { transition-delay: 0.06s; }
+    .card:nth-child(7)  { transition-delay: 0.12s; }
+    .card:nth-child(8)  { transition-delay: 0.18s; }
+    .card:nth-child(9)  { transition-delay: 0.00s; }
+    .card:nth-child(10) { transition-delay: 0.08s; }
+    .card:nth-child(11) { transition-delay: 0.16s; }
+    .card:nth-child(12) { transition-delay: 0.24s; }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 900px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none; flex-direction: column; gap: 0;
+        position: fixed; top: 68px; left: 0; right: 0;
+        background: var(--bg); border-top: 1px solid var(--bg2);
+        padding: 1rem 5%; z-index: 300;
+        box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 12px 0; border-bottom: 1px solid var(--bg2); }
+      .nav-links a { font-size: 1rem; }
+
+      .bento {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .card-hero   { grid-column: 1 / -1; grid-row: auto; }
+      .card-cta    { grid-column: 1 / -1; grid-row: auto; }
+      .card-stat1  { grid-column: 1 / 2; grid-row: auto; }
+      .card-stat2  { grid-column: 2 / 3; grid-row: auto; }
+      .card-stat3  { grid-column: 1 / 2; grid-row: auto; }
+      .card-quote  { grid-column: 2 / 3; grid-row: auto; }
+      .card-about-text { grid-column: 1 / -1; grid-row: auto; }
+      .card-about-img  { grid-column: 1 / 2; grid-row: auto; min-height: 220px; }
+      .card-creds      { grid-column: 2 / 3; grid-row: auto; }
+      .card-svc-head   { grid-column: 1 / -1; grid-row: auto; }
+      .card-svc-1  { grid-column: 1 / 2; grid-row: auto; }
+      .card-svc-2  { grid-column: 2 / 3; grid-row: auto; }
+      .card-svc-3  { grid-column: 1 / 2; grid-row: auto; }
+      .card-svc-4  { grid-column: 2 / 3; grid-row: auto; }
+      .card-svc-5  { grid-column: 1 / 2; grid-row: auto; }
+      .card-svc-6  { grid-column: 2 / 3; grid-row: auto; }
+      .card-why    { grid-column: 1 / -1; grid-row: auto; }
+      .card-contact-info { grid-column: 1 / -1; grid-row: auto; }
+      .card-contact-form { grid-column: 1 / -1; grid-row: auto; }
+
+      .form-grid { grid-template-columns: 1fr; }
+
+      #hero { padding: 40px 4% 40px; }
+    }
+
+    @media (max-width: 480px) {
+      .bento { grid-template-columns: 1fr; gap: 10px; }
+      .card-stat1, .card-stat2, .card-stat3, .card-quote { grid-column: 1 / -1; }
+      .card-about-img, .card-creds { grid-column: 1 / -1; }
+      .card-svc-1, .card-svc-2, .card-svc-3, .card-svc-4, .card-svc-5, .card-svc-6 { grid-column: 1 / -1; }
+      .card { padding: 24px 22px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "Dr. Sak Narwal",
+    "alternateName": "Dr. Sakwinder Narwal",
+    "description": "Friendly, modern dental care in New York City. Cosmetic, preventive & family dentistry.",
+    "address": { "@type": "PostalAddress", "addressLocality": "New York", "addressRegion": "NY", "addressCountry": "US" },
+    "telephone": "+1-212-555-0199",
+    "medicalSpecialty": "Dentistry",
+    "priceRange": "$$",
+    "openingHours": "Mo-Sa 08:00-19:00"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav role="navigation" aria-label="Main Navigation">
+    <div class="logo">
+      <div class="logo-bubble">SN</div>
+      <div class="logo-text">Dr. <span>Sak Narwal</span></div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about-section">About</a></li>
+      <li><a href="#services-section">Services</a></li>
+      <li><a href="#contact-section">Contact</a></li>
+      <li><a href="#contact-section" class="pill-btn">Book Now ✦</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN BENTO GRID -->
+  <main id="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <div class="bento">
+
+      <!-- HERO TEXT -->
+      <div class="card card-hero" id="about-section">
+        <div class="tag"><span></span> New York City Dentist</div>
+        <h1>Smile Brighter<br>with <em>Dr. Sak</em><br>Narwal</h1>
+        <p>Dr. Sak Narwal — known formally as <strong>Dr. Sakwinder Narwal</strong> — is a trusted, board-certified dentist in New York City. With over 15 years of practice, he combines clinical expertise with genuine warmth to give you a smile you'll love.</p>
+        <div class="hero-btns">
+          <a href="#contact-section" class="btn-sage">Book Appointment →</a>
+          <a href="#services-section" class="btn-outline-ink">See Services</a>
+        </div>
+      </div>
+
+      <!-- CTA CARD -->
+      <div class="card card-cta">
+        <div class="cta-top">Your Best<br>Smile <em>Starts</em><br>Here.</div>
+        <p class="cta-sub">Dr. Narwal's New York City practice is currently welcoming new patients. Evening & weekend slots available.</p>
+        <a href="#contact-section" class="btn-white">Reserve a Slot ↗</a>
+      </div>
+
+      <!-- STATS -->
+      <div class="card card-stat1">
+        <div class="stat-big peach">15+</div>
+        <div class="stat-label">Years of experience in NYC dentistry</div>
+      </div>
+
+      <div class="card card-stat2">
+        <div class="stat-big sky">5K+</div>
+        <div class="stat-label">Happy patients across New York City</div>
+      </div>
+
+      <div class="card card-stat3">
+        <div class="stat-big lemon">98%</div>
+        <div class="stat-label">Patient satisfaction score</div>
+      </div>
+
+      <div class="card card-quote">
+        <div class="q-mark">"</div>
+        <p>Every patient deserves a smile that reflects who they truly are.</p>
+        <div class="attr">— Dr. Sakwinder Narwal</div>
+      </div>
+
+      <!-- ABOUT TEXT -->
+      <div class="card card-about-text">
+        <h2>Meet <em>Dr. Sakwinder</em> Narwal</h2>
+        <p>Born from a passion for both science and human connection, Dr. Sak Narwal pursued dentistry as a way to meaningfully improve people's lives — one smile at a time. He earned his Doctor of Dental Surgery degree with honors and went on to complete advanced certifications in cosmetic dentistry, implantology, and clear aligner therapy.</p>
+        <p>Based in the heart of New York City, Dr. Narwal's practice reflects the city itself — diverse, dynamic, and driven by excellence. He takes time to understand every patient's history, anxieties, and goals before recommending any treatment. Patients across Manhattan, Brooklyn, and Queens trust Dr. Sakwinder Narwal for everything from their first check-up to complete smile transformations.</p>
+        <p>Beyond the clinic, Dr. Narwal actively volunteers at New York City's free dental health camps, bringing quality oral care to communities that need it most across all five boroughs.</p>
+      </div>
+
+      <!-- ABOUT IMAGE CARD -->
+      <div class="card card-about-img">
+        <div class="doc-badge">
+          <div class="doc-name">Dr. Sakwinder Narwal</div>
+          <div class="doc-title">DDS · NYC Licensed · Board Certified</div>
+        </div>
+      </div>
+
+      <!-- CREDENTIALS -->
+      <div class="card card-creds">
+        <h3>Qualifications</h3>
+        <div class="cred-item"><div class="cred-dot"></div><p><strong>Doctor of Dental Surgery (DDS)</strong>Graduated with distinction, NYS licensed & board-certified.</p></div>
+        <div class="cred-item"><div class="cred-dot"></div><p><strong>Advanced Cosmetic Dentistry</strong>Veneers, bonding & digital smile design specialist.</p></div>
+        <div class="cred-item"><div class="cred-dot"></div><p><strong>Implantology Certified</strong>Surgical placement & full implant restoration.</p></div>
+        <div class="cred-item"><div class="cred-dot"></div><p><strong>American Dental Association</strong>Active member, 15+ years of NYC practice.</p></div>
+        <div class="cred-item"><div class="cred-dot"></div><p><strong>NYC Community Health Volunteer</strong>Annual free dental camps across five boroughs.</p></div>
+      </div>
+
+      <!-- SERVICES HEADER -->
+      <div class="card card-svc-head" id="services-section">
+        <div>
+          <h2>Our <em>Services</em></h2>
+          <p>A full spectrum of modern dental care — from routine cleanings to full smile makeovers — all under one roof in New York City.</p>
+        </div>
+        <div class="svc-count">6</div>
+      </div>
+
+      <div class="card card-svc-1">
+        <span class="svc-icon">✨</span>
+        <div class="svc-title">Cosmetic Dentistry</div>
+        <div class="svc-desc">Teeth whitening, porcelain veneers, bonding & smile makeovers to give you a radiant, confident smile.</div>
+      </div>
+
+      <div class="card card-svc-2">
+        <span class="svc-icon">🔬</span>
+        <div class="svc-title">Preventive Care</div>
+        <div class="svc-desc">Cleanings, exams, X-rays & fluoride treatments — your foundation for lifelong oral health.</div>
+      </div>
+
+      <div class="card card-svc-3">
+        <span class="svc-icon">🦷</span>
+        <div class="svc-title">Dental Implants</div>
+        <div class="svc-desc">Permanent, natural-looking implants to replace missing teeth with lasting precision.</div>
+      </div>
+
+      <div class="card card-svc-4">
+        <span class="svc-icon">😁</span>
+        <div class="svc-title">Clear Aligners</div>
+        <div class="svc-desc">Discreet orthodontic alignment — perfect for busy New York City professionals.</div>
+      </div>
+
+      <div class="card card-svc-5">
+        <span class="svc-icon">🛡️</span>
+        <div class="svc-title">Restorative Dentistry</div>
+        <div class="svc-desc">Crowns, bridges & tooth-colored fillings to restore beauty and function.</div>
+      </div>
+
+      <div class="card card-svc-6">
+        <span class="svc-icon">🚨</span>
+        <div class="svc-title">Emergency Care</div>
+        <div class="svc-desc">Same-day NYC appointments for urgent dental needs — toothaches, fractures & more.</div>
+      </div>
+
+      <!-- WHY US CHIPS -->
+      <div class="card card-why">
+        <h3>Why New Yorkers Choose Us</h3>
+        <div class="why-chips">
+          <span class="why-chip">🏅 Award-Winning NYC Practice</span>
+          <span class="why-chip">💡 Digital 3D Imaging</span>
+          <span class="why-chip">❤️ Patient-First Philosophy</span>
+          <span class="why-chip">🗓️ Weekend Appointments</span>
+          <span class="why-chip">💳 All Insurance Accepted</span>
+          <span class="why-chip">🌍 Multilingual Team</span>
+          <span class="why-chip">⚡ Same-Day Emergencies</span>
+          <span class="why-chip">🤝 Transparent Pricing</span>
+          <span class="why-chip">🏙️ Serving All 5 Boroughs</span>
+        </div>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div class="card card-contact-info" id="contact-section">
+        <h2>Let's <em>Talk</em> About Your Smile</h2>
+        <ul class="info-list">
+          <li>
+            <div class="info-icon">📍</div>
+            <div><div class="il-label">Location</div><div class="il-val">New York City, NY</div></div>
+          </li>
+          <li>
+            <div class="info-icon">📞</div>
+            <div><div class="il-label">Phone</div><div class="il-val">(212) 555-0199</div></div>
+          </li>
+          <li>
+            <div class="info-icon">✉️</div>
+            <div><div class="il-label">Email</div><div class="il-val">hello@saknarwal.com</div></div>
+          </li>
+          <li>
+            <div class="info-icon">🕐</div>
+            <div><div class="il-label">Hours</div><div class="il-val">Mon–Fri: 8AM–7PM<br>Sat: 9AM–4PM</div></div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CONTACT FORM -->
+      <div class="card card-contact-form">
+        <h3>Book an Appointment ✦</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fn">First Name</label>
+            <input type="text" id="fn" placeholder="John" autocomplete="given-name"/>
+          </div>
+          <div class="form-group">
+            <label for="ln">Last Name</label>
+            <input type="text" id="ln" placeholder="Smith" autocomplete="family-name"/>
+          </div>
+          <div class="form-group">
+            <label for="em">Email</label>
+            <input type="email" id="em" placeholder="john@email.com" autocomplete="email"/>
+          </div>
+          <div class="form-group">
+            <label for="ph">Phone</label>
+            <input type="tel" id="ph" placeholder="(212) 000-0000" autocomplete="tel"/>
+          </div>
+          <div class="form-group full">
+            <label for="sv">Service Needed</label>
+            <select id="sv">
+              <option value="">Select a service...</option>
+              <option>Cosmetic Dentistry</option>
+              <option>Preventive Care / Cleaning</option>
+              <option>Dental Implants</option>
+              <option>Clear Aligners</option>
+              <option>Restorative Dentistry</option>
+              <option>Emergency Dental Care</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="msg">Additional Notes</label>
+            <textarea id="msg" placeholder="Tell Dr. Narwal about your dental concerns or questions..."></textarea>
+          </div>
+        </div>
+        <button class="btn-submit" onclick="alert('Thank you! Dr. Sak Narwal\'s New York City team will contact you shortly. 🦷')">Send Appointment Request →</button>
+      </div>
+
+    </div><!-- /bento -->
+  </main>
+
+  <footer>
+    <p>© 2025 <strong>Dr. Sak Narwal (Sakwinder Narwal)</strong> · Dentist, New York City, NY · All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    }));
+
+    // Scroll reveal for bento cards
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }});
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.card').forEach(c => io.observe(c));
+  </script>
+</body>
+</html>
